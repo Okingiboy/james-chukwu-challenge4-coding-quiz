@@ -1,5 +1,22 @@
 // Home page
 var mainEl = document.querySelector("#main");
+var timerEl = document.querySelector("#timer");
+
+var timer = function() {
+    var timeLeft = 75;
+
+    var timeInterval = setInterval(() => {
+        if (timeLeft > 1) {
+            timerEl.textContent = timeLeft;
+            timeLeft --;
+            console.log(timeLeft);
+        } else {
+            timerEl.textContent = "Time is Up";
+            clearInterval(timeInterval);
+        }
+    }, 1000);
+    console.log("TIMER STARTED")
+}
 
 var questionOne = function() {
         //div
@@ -70,6 +87,7 @@ var start = function() {
 
         // removes home page elements
     startQuizBtn.addEventListener("click", event => {
+        timer();
         startQuizBtn.remove();
         homeHeader.remove();
         homeParagraph.remove();
