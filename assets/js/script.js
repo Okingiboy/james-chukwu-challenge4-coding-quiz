@@ -34,6 +34,5 @@ var start = function() {
         homeHeader.remove();
         homeParagraph.remove();
     });
-
 }
 start();
