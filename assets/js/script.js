@@ -42,27 +42,40 @@ var highScores = function() {
     highScoreContainer.appendChild(title);
 
     //displays high scores
-        //div
-    var leaderboard = document.createElement("div");
-    leaderboard.className = "leaderboard";
-    highScoreContainer.appendChild(leaderboard);
         // displays player scores
     var initals = localStorage.getItem("initals");
     var score = localStorage.getItem("score");
     var leaderboardScore = document.createElement("p");
     leaderboardScore.className = "leaderboard-score";
     leaderboardScore.textContent = "1." + initals + " - " + score;
-    leaderboard.appendChild(leaderboardScore);
+    highScoreContainer.appendChild(leaderboardScore);
 
+        //div
+    var leaderboard = document.createElement("div");
+    leaderboard.className = "leaderboard";
+    highScoreContainer.appendChild(leaderboard);
         //button "GO BACK"
     var goBack = document.createElement("button");
     goBack.className = "go-back-btn";
     goBack.textContent = "Go Back";
+    goBack.addEventListener("click", event => {
+        totalPoints = 0;
+        highScoreContainer.remove();
+        start();
+    })
     leaderboard.appendChild(goBack);
         // button "CLEAR HIGH SCORE"
     var clearHighScore = document.createElement("button");
     clearHighScore.className = "clear-highScore";
     clearHighScore.textContent = "Clear High Scores";
+    clearHighScore.addEventListener("click", event => {
+        //remove score from local storage
+        localStorage.removeItem("initals")
+        //remove initals from local storage
+        localStorage.removeItem("score")
+        //remove score from leaderboard
+        leaderboardScore.remove();
+    })
     leaderboard.appendChild(clearHighScore);
 }
 
@@ -111,9 +124,12 @@ var enterScore = function() {
         localStorage.setItem("initals", initals);
         //store initals in local storage
         localStorage.setItem("score", totalPoints);
+        if (initals != initals) {
 
+        }
+
+            // remove page content
         doneContainer.remove();
-
         //move to next page
         highScores();
     })
