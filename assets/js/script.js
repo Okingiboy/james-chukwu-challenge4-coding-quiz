@@ -1,12 +1,12 @@
 // Home page
 
-var main = document.querySelector("#main");
+var mainEl = document.querySelector("#main");
 
 var start = function() {
         //div
     var container = document.createElement("div");
     container.className = "home-container"
-    main.appendChild(container);
+    mainEl.appendChild(container);
 
         // start page title
     var homeHeader = document.createElement("h1");
@@ -27,5 +27,13 @@ var start = function() {
     startQuizBtn.className = "home-btn";
     startQuizBtn.textContent = "Start Quiz";
     container.appendChild(startQuizBtn);
+
+        // removes home page elements
+    startQuizBtn.addEventListener("click", event => {
+        startQuizBtn.remove();
+        homeHeader.remove();
+        homeParagraph.remove();
+    });
+
 }
 start();
