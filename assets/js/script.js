@@ -3,12 +3,12 @@ var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
 var totalPoints = 0;
+
+    // Global Functions for use in questions
 var points = function() {
     totalPoints = totalPoints + 10;
     console.log("You have " + totalPoints + " points!");
 }
-
-
 var timer = function() {
     var timeInterval = setInterval(() => {
         if (timeLeft > 1) {
@@ -24,32 +24,68 @@ var timer = function() {
     console.log("TIMER STARTED")
 }
 
-var questionTwo = function() {
 
+var questionTwo = function() {
+        //div
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
+
+        // question Two
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "The condition in an if / else statement if enclosed with ________.";
+    questionContainer.appendChild(question);
+
+        // question Two Answers
+    var answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+    questionContainer.appendChild(answerContainer);
+            // answer one
+    var answerOne = document.createElement("button");
+    answerOne.className = "answer-One";
+    answerOne.textContent = "1. quotes";
+    answerContainer.appendChild(answerOne);
+            //answer Two
+    var answerTwo = document.createElement("button");
+    answerTwo.className = "answer-Two";
+    answerTwo.textContent = "2. curly brackets";
+    answerContainer.appendChild(answerTwo);
+            // answer Three
+    var answerThree = document.createElement("button");
+    answerThree.className = "answer-Three";
+    answerThree.textContent = "3. alerts";
+    answerContainer.appendChild(answerThree);
+            // answer Four
+    var answerFour = document.createElement("button");
+    answerFour.className = "answer-Four";
+    answerFour.textContent = "4. numbers";
+    answerContainer.appendChild(answerFour);
 }
 
 var questionOne = function() {
+        // execute if wrong answer is choosen
     var removeWrong = function() {
         timeLeft = timeLeft - 10;
-        questionOneContainer.remove();
+        questionContainer.remove();
         questionTwo();
         console.log("The answer you picked was wrong");
     }
         //div
-    var questionOneContainer = document.createElement("div");
-    questionOneContainer.className = "question-one-container";
-    mainEl.appendChild(questionOneContainer);
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
 
         //question One
-    var questionOne = document.createElement("h1");
-    questionOne.className = "question-one";
-    questionOne.textContent = "Commonly Used data types DO NOT Include:";
-    questionOneContainer.appendChild(questionOne);
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "Commonly Used data types DO NOT Include:";
+    questionContainer.appendChild(question);
 
         //question One Answers
     var answerContainer = document.createElement("div");
     answerContainer.className = "answer-container";
-    questionOneContainer.appendChild(answerContainer);
+    questionContainer.appendChild(answerContainer);
             // answer One
     var answerOne = document.createElement("button");
     answerOne.className = "answer-One";
