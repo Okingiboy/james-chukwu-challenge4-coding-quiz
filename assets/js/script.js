@@ -3,6 +3,7 @@ var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
 var totalPoints = 0;
+var end = false;
 
     // Global Functions for use in questions
 var points = function() {
@@ -11,17 +12,84 @@ var points = function() {
 }
 var timer = function() {
     var timeInterval = setInterval(() => {
-        if (timeLeft > 1) {
+        if (end === false) {
             timerEl.textContent = timeLeft;
             timeLeft --;
-            
         } else {
-            timerEl.textContent = "Time is Up";
+            timerEl.textContent = "";
             clearInterval(timeInterval);
         }
     }, 1000);
     
     console.log("TIMER STARTED")
+}
+if (end === true){
+    clearInterval(timeInterval);
+}
+
+var enterScore = function() {
+
+}
+
+var questionFive = function() {
+    // execute if wrong answer is choosen
+    var removeWrong = function() {;
+        questionContainer.remove();
+        enterScore();
+        console.log("The answer you picked was wrong");
+        end = true;
+    }
+        //div
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
+
+        // question Two
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "What's another word for case sensitive";
+    questionContainer.appendChild(question);
+
+        // question Two Answers
+    var answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+    questionContainer.appendChild(answerContainer);
+            // answer one
+    var answerOne = document.createElement("button");
+    answerOne.className = "answer-One";
+    answerOne.textContent = "1. CamelCasing";
+    answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        questionContainer.remove();
+        enterScore();
+        console.log("You picked the right answer");
+        points();
+        end = true;
+    })
+            //answer Two
+    var answerTwo = document.createElement("button");
+    answerTwo.className = "answer-Two";
+    answerTwo.textContent = "2. Uppercase";
+    answerContainer.appendChild(answerTwo);
+    answerTwo.addEventListener("click", event => {
+        removeWrong();
+    })
+            // answer Three
+    var answerThree = document.createElement("button");
+    answerThree.className = "answer-Three";
+    answerThree.textContent = "3. Case Sensitive";
+    answerContainer.appendChild(answerThree);
+    answerThree.addEventListener("click", event => {
+        removeWrong();
+    })
+            // answer Four
+    var answerFour = document.createElement("button");
+    answerFour.className = "answer-Four";
+    answerFour.textContent = "4. No Clue";
+    answerContainer.appendChild(answerFour);
+    answerFour.addEventListener("click", event => {
+        removeWrong();
+    })
 }
 
 var questionFour = function() {
@@ -29,7 +97,7 @@ var questionFour = function() {
     var removeWrong = function() {
         timeLeft = timeLeft - 10;
         questionContainer.remove();
-        // next function to move to
+        questionFive();
         console.log("The answer you picked was wrong");
         return timeLeft;
     }
@@ -79,7 +147,7 @@ var questionFour = function() {
     answerContainer.appendChild(answerFour);
     answerFour.addEventListener("click", event => {
         questionContainer.remove();
-        questionFour();
+        questionFive();
         console.log("You picked the right answer");
         points();
     })
