@@ -24,8 +24,19 @@ var timer = function() {
     console.log("TIMER STARTED")
 }
 
+var questionFour = function() {
 
-var questionTwo = function() {
+}
+
+var questionThree = function() {
+// execute if wrong answer is choosen
+    var removeWrong = function() {
+        timeLeft = timeLeft - 10;
+        questionContainer.remove();
+        questionTwo();
+        console.log("The answer you picked was wrong");
+        return timeLeft;
+    }
         //div
     var questionContainer = document.createElement("div");
     questionContainer.className = "question-container";
@@ -34,7 +45,67 @@ var questionTwo = function() {
         // question Two
     var question = document.createElement("h1");
     question.className = "question";
-    question.textContent = "The condition in an if / else statement if enclosed with ________.";
+    question.textContent = "Arrays in JavaScript can be used to store __________.";
+    questionContainer.appendChild(question);
+
+        // question Two Answers
+    var answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+    questionContainer.appendChild(answerContainer);
+            // answer one
+    var answerOne = document.createElement("button");
+    answerOne.className = "answer-One";
+    answerOne.textContent = "1. numbers & strings";
+    answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
+            //answer Two
+    var answerTwo = document.createElement("button");
+    answerTwo.className = "answer-Two";
+    answerTwo.textContent = "2. other arrays";
+    answerContainer.appendChild(answerTwo);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
+            // answer Three
+    var answerThree = document.createElement("button");
+    answerThree.className = "answer-Three";
+    answerThree.textContent = "3.booleans";
+    answerContainer.appendChild(answerThree);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
+            // answer Four
+    var answerFour = document.createElement("button");
+    answerFour.className = "answer-Four";
+    answerFour.textContent = "4. all of the above";
+    answerContainer.appendChild(answerFour);
+    answerFour.addEventListener("click", event => {
+        questionContainer.remove();
+        questionFour();
+        console.log("You picked the right answer");
+        points();
+    })
+}
+
+var questionTwo = function() {
+        // execute if wrong answer is choosen
+    var removeWrong = function() {
+        timeLeft = timeLeft - 10;
+        questionContainer.remove();
+        questionTwo();
+        console.log("The answer you picked was wrong");
+    }
+        //div
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
+
+        // question Two
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "The condition in an if / else statement is enclosed with ________.";
     questionContainer.appendChild(question);
 
         // question Two Answers
@@ -46,21 +117,36 @@ var questionTwo = function() {
     answerOne.className = "answer-One";
     answerOne.textContent = "1. quotes";
     answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
             //answer Two
     var answerTwo = document.createElement("button");
     answerTwo.className = "answer-Two";
     answerTwo.textContent = "2. curly brackets";
     answerContainer.appendChild(answerTwo);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
             // answer Three
     var answerThree = document.createElement("button");
     answerThree.className = "answer-Three";
-    answerThree.textContent = "3. alerts";
+    answerThree.textContent = "3. parenthesis";
     answerContainer.appendChild(answerThree);
+    answerThree.addEventListener("click", event => {
+        questionContainer.remove();
+        questionThree();
+        console.log("You picked the right answer");
+        points();
+    })
             // answer Four
     var answerFour = document.createElement("button");
     answerFour.className = "answer-Four";
-    answerFour.textContent = "4. numbers";
+    answerFour.textContent = "4. square brackets";
     answerContainer.appendChild(answerFour);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
 }
 
 var questionOne = function() {
@@ -108,7 +194,7 @@ var questionOne = function() {
     answerThree.textContent = "3. alerts";
     answerContainer.appendChild(answerThree);
     answerThree.addEventListener("click", event => {
-        questionOneContainer.remove();
+        questionContainer.remove();
         questionTwo();
         console.log("You picked the right answer");
         points();
