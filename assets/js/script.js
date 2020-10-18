@@ -15,6 +15,7 @@ var timer = function() {
         if (end === false) {
             timerEl.textContent = timeLeft;
             timeLeft --;
+            return timeLeft;
         } else {
             timerEl.textContent = "";
             clearInterval(timeInterval);
@@ -22,13 +23,57 @@ var timer = function() {
     }, 1000);
     
     console.log("TIMER STARTED")
+    if (end === true){
+        timerEl.textContent = timeLeft;
+    }
 }
-if (end === true){
-    clearInterval(timeInterval);
-}
+
 
 var enterScore = function() {
+        // DIV
+    var doneContainer = document.createElement("div");
+    doneContainer.className = "done-container";
+    mainEl.appendChild(doneContainer);
+        // TITLE
+    var done = document.createElement("h1");
+    done.textContent = "All Done!";
+    done.className = "done-title";
+    doneContainer.appendChild(done);
+        // SCORE
+    var score = document.createElement("h4");
+    score.textContent = "Your final score is " + totalPoints;
+    score.className = "score";
+    doneContainer.appendChild(score); 
 
+        //div
+    var inputContainer = document.createElement("div");
+    inputContainer.className = "input-container";
+    doneContainer.appendChild(inputContainer);
+
+        // LABEL
+    var label = document.createElement("label");
+    label.textContent = "Enter Initials:";
+    label.className = "label";
+    label.setAttribute("for", "input");
+    inputContainer.appendChild(label);
+        // INPUT
+    var initalInput = document.createElement("Input");
+    initalInput.className = "score-input";
+    initalInput.setAttribute("id", "input")
+    initalInput.setAttribute("name", "input");
+    initalInput.setAttribute("type", "text");
+    inputContainer.appendChild(initalInput);
+        //SUBMIT
+    var submit = document.createElement("button");
+    submit.textContent = "Submit";
+    submit.className = "submit-btn";
+    submit.addEventListener("click", event => {
+            // retreives user input
+        var initals = document.getElementById("input").value;
+        //store score in local storage
+        //store initals in local storage
+    })
+    inputContainer.appendChild(submit);
 }
 
 var questionFive = function() {
@@ -60,10 +105,10 @@ var questionFive = function() {
     answerOne.textContent = "1. CamelCasing";
     answerContainer.appendChild(answerOne);
     answerOne.addEventListener("click", event => {
+        points();
         questionContainer.remove();
         enterScore();
         console.log("You picked the right answer");
-        points();
         end = true;
     })
             //answer Two
