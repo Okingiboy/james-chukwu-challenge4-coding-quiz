@@ -1,24 +1,34 @@
 // Home page
 var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#timer");
+var timeLeft = 75;
 
 var timer = function() {
-    var timeLeft = 75;
-
     var timeInterval = setInterval(() => {
         if (timeLeft > 1) {
             timerEl.textContent = timeLeft;
             timeLeft --;
-            console.log(timeLeft);
+            
         } else {
             timerEl.textContent = "Time is Up";
             clearInterval(timeInterval);
         }
     }, 1000);
+    
     console.log("TIMER STARTED")
 }
 
+var questionTwo = function() {
+
+}
+
 var questionOne = function() {
+    var removeWrong = function() {
+        timeLeft = timeLeft - 10;
+        questionOneContainer.remove();
+        questionTwo();
+        console.log("The answer you picked was wrong");
+    }
         //div
     var questionOneContainer = document.createElement("div");
     questionOneContainer.className = "question-one-container";
@@ -36,26 +46,42 @@ var questionOne = function() {
     questionOneContainer.appendChild(answerContainer);
             // answer One
     var answerOne = document.createElement("button");
+    answerOne.setAttribute("id", "wrong");
     answerOne.className = "answer-One";
     answerOne.textContent = "1. strings";
     answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    })
             // answer Two
     var answerTwo = document.createElement("button");
+    answerTwo.setAttribute("id", "wrong");
     answerTwo.className = "answer-Two";
     answerTwo.textContent = "2. booleans";
     answerContainer.appendChild(answerTwo);
+    answerTwo.addEventListener("click", event => {
+        removeWrong();
+    })
             // answer Three
     var answerThree = document.createElement("button");
+    answerThree.setAttribute("id", "correct");
     answerThree.className = "answer-Three";
     answerThree.textContent = "3. alerts";
     answerContainer.appendChild(answerThree);
+    answerThree.addEventListener("click", event => {
+        questionOneContainer.remove();
+        questionTwo();
+        console.log("You picked the right answer");
+    })
             // answer Four
     var answerFour = document.createElement("button");
+    answerFour.setAttribute("id", "wrong")
     answerFour.className = "answer-Four";
     answerFour.textContent = "4. numbers";
     answerContainer.appendChild(answerFour);
-
-
+    answerFour.addEventListener("click", event => {
+        removeWrong();
+    })
     console.log("Question One");
 }
 
