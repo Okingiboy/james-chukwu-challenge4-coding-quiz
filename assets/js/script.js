@@ -29,6 +29,31 @@ var timer = function() {
 }
 
 
+var highScores = function() {
+        //div
+    var highScoreContainer = document.createElement("div");
+    highScoreContainer.className = "hs-container";
+    mainEl.appendChild(highScoreContainer);
+
+    // high Score TITLE
+    var title = document.createElement("h1");
+    title.className = "high-score-title";
+    title.textContent = "High Scores";
+    highScoreContainer.appendChild(title);
+
+    //displays high scores
+        //div
+    var leaderboard = document.createElement("div");
+    leaderboard.className = "leaderboard";
+    highScoreContainer.appendChild(leaderboard);
+        // displays player scores
+    var initals = localStorage.getItem("initals");
+    var score = localStorage.getItem("score");
+    var leaderboardScore = document.createElement("p");
+    leaderboardScore.textContent = "1." + initals + " - " + score;
+    leaderboard.appendChild(leaderboardScore);
+}
+
 var enterScore = function() {
         // DIV
     var doneContainer = document.createElement("div");
@@ -73,7 +98,12 @@ var enterScore = function() {
         //store score in local storage
         localStorage.setItem("initals", initals);
         //store initals in local storage
-        localStorage.setItem("score: ", totalPoints);
+        localStorage.setItem("score", totalPoints);
+
+        doneContainer.remove();
+
+        //move to next page
+        highScores();
     })
     inputContainer.appendChild(submit);
 }
