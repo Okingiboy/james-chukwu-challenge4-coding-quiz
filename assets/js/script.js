@@ -2,6 +2,12 @@
 var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
+var totalPoints = 0;
+var points = function() {
+    totalPoints = totalPoints + 10;
+    console.log("You have " + totalPoints + " points!");
+}
+
 
 var timer = function() {
     var timeInterval = setInterval(() => {
@@ -46,7 +52,6 @@ var questionOne = function() {
     questionOneContainer.appendChild(answerContainer);
             // answer One
     var answerOne = document.createElement("button");
-    answerOne.setAttribute("id", "wrong");
     answerOne.className = "answer-One";
     answerOne.textContent = "1. strings";
     answerContainer.appendChild(answerOne);
@@ -55,7 +60,6 @@ var questionOne = function() {
     })
             // answer Two
     var answerTwo = document.createElement("button");
-    answerTwo.setAttribute("id", "wrong");
     answerTwo.className = "answer-Two";
     answerTwo.textContent = "2. booleans";
     answerContainer.appendChild(answerTwo);
@@ -64,7 +68,6 @@ var questionOne = function() {
     })
             // answer Three
     var answerThree = document.createElement("button");
-    answerThree.setAttribute("id", "correct");
     answerThree.className = "answer-Three";
     answerThree.textContent = "3. alerts";
     answerContainer.appendChild(answerThree);
@@ -72,10 +75,10 @@ var questionOne = function() {
         questionOneContainer.remove();
         questionTwo();
         console.log("You picked the right answer");
+        points();
     })
             // answer Four
     var answerFour = document.createElement("button");
-    answerFour.setAttribute("id", "wrong")
     answerFour.className = "answer-Four";
     answerFour.textContent = "4. numbers";
     answerContainer.appendChild(answerFour);
