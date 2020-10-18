@@ -71,7 +71,9 @@ var enterScore = function() {
             // retreives user input
         var initals = document.getElementById("input").value;
         //store score in local storage
+        localStorage.setItem("initals", initals);
         //store initals in local storage
+        localStorage.setItem("score: ", totalPoints);
     })
     inputContainer.appendChild(submit);
 }
