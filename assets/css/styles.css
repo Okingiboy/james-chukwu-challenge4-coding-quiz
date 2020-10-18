@@ -9,6 +9,9 @@ header {
     padding: 10px 80px;
     margin: 35px 0;
 }
+:root {
+    --hoverColor:  rgb(197, 16, 197);
+}
     /* Home Page Styles */
 .home-container {
     display: grid;
@@ -47,8 +50,8 @@ header {
     border-radius: 10px;
 }
 .home-btn:hover {
-    background-color: rgb(197, 16, 197);
-    border: 2px rgb(197, 16, 197) solid
+    background-color: var(--hoverColor);
+    border: 2px var(--hoverColor) solid;
 }
 
 
@@ -79,6 +82,14 @@ header {
     text-align: left;
     padding: 10px 15px;
     margin: 5px 0;
+    color: white;
+    background-color: purple;
+    border: 2px solid purple;
+    border-radius: 5px;
+}
+.answer-One:hover {
+    background-color: var(--hoverColor);
+    border: 2px solid var(--hoverColor);
 }
 .answer-Two {
     grid-row: 2 / 3;
@@ -88,6 +99,14 @@ header {
     text-align: left;
     padding: 10px 15px;
     margin: 5px 0;
+    color: white;
+    background-color: purple;
+    border: 2px solid purple;
+    border-radius: 5px;
+}
+.answer-Two:hover {
+    background-color: var(--hoverColor);
+    border: 2px solid var(--hoverColor);
 }
 .answer-Three {
     grid-row: 3 / 4;
@@ -97,6 +116,14 @@ header {
     text-align: left;
     padding: 10px 15px;
     margin: 5px 0;
+    color: white;
+    background-color: purple;
+    border: 2px solid purple;
+    border-radius: 5px;
+}
+.answer-Three:hover {
+    background-color: var(--hoverColor);
+    border: 2px solid var(--hoverColor);
 }
 .answer-Four {
     grid-row: 4 / 5;
@@ -106,4 +133,12 @@ header {
     text-align: left;
     padding: 10px 15px;
     margin: 5px 0;
+    color: white;
+    background-color: purple;
+    border: 2px solid purple;
+    border-radius: 5px;
+}
+.answer-Four:hover {
+    background-color: var(--hoverColor);
+    border: 2px solid var(--hoverColor);
 }
