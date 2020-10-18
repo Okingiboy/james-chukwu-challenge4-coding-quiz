@@ -1,6 +1,38 @@
 // Home page
-
 var mainEl = document.querySelector("#main");
+
+var questionOne = function() {
+        //div
+    var questionOneContainer = document.createElement("div");
+    questionOneContainer.className = "question-one-container";
+    mainEl.appendChild(questionOneContainer);
+
+        //question One
+    var questionOne = document.createElement("h1");
+    questionOne.textContent = "Commonly Used data types DO NOT Include:";
+    questionOneContainer.appendChild(questionOne);
+
+        //question One Answers
+            // answer One
+    var answerOne = document.createElement("button");
+    answerOne.textContent = "strings";
+    questionOneContainer.appendChild(answerOne);
+            // answer Two
+    var answerTwo = document.createElement("button");
+    answerTwo.textContent = "booleans";
+    questionOneContainer.appendChild(answerTwo);
+            // answer Three
+    var answerThree = document.createElement("button");
+    answerThree.textContent = "alerts";
+    questionOneContainer.appendChild(answerThree);
+            // answer Four
+    var answerFour = document.createElement("button");
+    answerFour.textContent = "numbers";
+    questionOneContainer.appendChild(answerFour);
+
+
+    console.log("Question One");
+}
 
 var start = function() {
         //div
@@ -33,6 +65,7 @@ var start = function() {
         startQuizBtn.remove();
         homeHeader.remove();
         homeParagraph.remove();
+        questionOne();
     });
 }
 start();
