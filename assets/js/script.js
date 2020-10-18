@@ -50,8 +50,20 @@ var highScores = function() {
     var initals = localStorage.getItem("initals");
     var score = localStorage.getItem("score");
     var leaderboardScore = document.createElement("p");
+    leaderboardScore.className = "leaderboard-score";
     leaderboardScore.textContent = "1." + initals + " - " + score;
     leaderboard.appendChild(leaderboardScore);
+
+        //button "GO BACK"
+    var goBack = document.createElement("button");
+    goBack.className = "go-back-btn";
+    goBack.textContent = "Go Back";
+    leaderboard.appendChild(goBack);
+        // button "CLEAR HIGH SCORE"
+    var clearHighScore = document.createElement("button");
+    clearHighScore.className = "clear-highScore";
+    clearHighScore.textContent = "Clear High Scores";
+    leaderboard.appendChild(clearHighScore);
 }
 
 var enterScore = function() {
