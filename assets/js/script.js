@@ -50,6 +50,7 @@ var highScores = function() {
     leaderboardScore.textContent = "1." + initals + " - " + score;
     highScoreContainer.appendChild(leaderboardScore);
 
+
         //div
     var leaderboard = document.createElement("div");
     leaderboard.className = "leaderboard";
@@ -60,6 +61,8 @@ var highScores = function() {
     goBack.textContent = "Go Back";
     goBack.addEventListener("click", event => {
         totalPoints = 0;
+        end = false;
+        timeLeft = 75;
         highScoreContainer.remove();
         start();
     })
@@ -124,10 +127,6 @@ var enterScore = function() {
         localStorage.setItem("initals", initals);
         //store initals in local storage
         localStorage.setItem("score", totalPoints);
-        if (initals != initals) {
-
-        }
-
             // remove page content
         doneContainer.remove();
         //move to next page
